@@ -1,0 +1,2 @@
+php artisan generate:scaffold checklist --fields="name:string, detailURL:string"
+php artisan generate:scaffold entry     --fields="content:text, checklistID:integer, order:integer"
