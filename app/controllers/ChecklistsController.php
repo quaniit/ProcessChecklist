@@ -69,7 +69,11 @@ class ChecklistsController extends BaseController {
 	{
 		$checklist = $this->checklist->findOrFail($id);
 
-		return View::make('checklists.show', compact('checklist'));
+		//Get entries for this checklist
+		$entries = Entry::where('checklistID', '=', $id)->orderBy('order', 'asc')->get();
+
+		return View::make('checklists.show', compact('checklist'))
+		    ->nest('entriesView','entries.view', array('entries' => $entries, 'checklistID' => $id));
 	}
 
 	/**
@@ -87,7 +91,11 @@ class ChecklistsController extends BaseController {
 			return Redirect::route('checklists.index');
 		}
 
-		return View::make('checklists.edit', compact('checklist'));
+		//Get entries for this checklist
+		$entries = Entry::where('checklistID', '=', $id)->orderBy('order', 'asc')->get();
+
+		return View::make('checklists.edit', compact('checklist'))
+		    ->nest('entriesView','entries.index', array('entries' => $entries, 'checklistID' => $id));
 	}
 
 	/**

@@ -50,10 +50,12 @@ class EntriesController extends BaseController {
 		{
 			$this->entry->create($input);
 
-			return Redirect::route('entries.index');
+			return Redirect::route('checklists.edit', Input::get('checklistID'));
 		}
 
-		return Redirect::route('entries.create')
+
+
+		return Redirect::route('checklists.edit', Input::get('checklistID'))
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -101,15 +103,17 @@ class EntriesController extends BaseController {
 		$input = array_except(Input::all(), '_method');
 		$validation = Validator::make($input, Entry::$rules);
 
+		$entry = $this->entry->find($id);
+		
 		if ($validation->passes())
 		{
-			$entry = $this->entry->find($id);
+			
 			$entry->update($input);
 
-			return Redirect::route('entries.show', $id);
+			return Redirect::route('checklists.edit', $entry->checklistID);
 		}
 
-		return Redirect::route('entries.edit', $id)
+		return Redirect::route('checklists.edit', $entry->checklistID)
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');

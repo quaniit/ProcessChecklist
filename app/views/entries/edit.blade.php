@@ -22,7 +22,7 @@
 
 		<li>
 			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('entries.show', 'Cancel', $entry->id, array('class' => 'btn')) }}
+			{{ link_to_route('checklists.edit', 'Cancel', $entry->checklistID, array('class' => 'btn')) }}
 		</li>
 	</ul>
 {{ Form::close() }}

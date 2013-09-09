@@ -1,0 +1,65 @@
+#heading-row a {
+	margin-top:17px;
+}
+#accordion-buttons {
+	margin-top:5px;
+}
+
+#accordion-buttons a {
+	margin-right:2px;
+}
+
+#accordion-buttons form {
+	margin:0px;
+}
+
+.btn-control {
+	display: table;
+}
+
+.img-small {
+	height:25px;
+}
+
+.img-medium {
+	height:50px;
+}
+
+.span-module {
+    margin-left:-1px;
+    margin-right:-1px;
+    margin-top:20px;
+    padding:10px;
+    border: 1px solid #eee;
+}
+
+.th-button {
+	width:30px;
+}
+
+.th-add {
+	padding-left:0px !important;
+}
+
+.left-column {
+	//min-width:350px;
+}
+
+.nav-collapse .nav>li>a, .nav-collapse .dropdown-menu a {
+	color:#fff;
+}
+
+.nav-collapse .nav>li>a:hover, .nav-collapse .nav>li>a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus {
+	background-color:#7e321e;
+}
+
+.modal-ezconf {
+    /* new custom width */
+    width: 86%;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: -43%;
+}
+
+.modal-body-tall{
+    max-height:800px;   
+}

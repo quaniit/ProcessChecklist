@@ -18,7 +18,7 @@
 		<tbody>
 			@foreach ($checklists as $checklist)
 				<tr>
-					<td>{{{ $checklist->name }}}</td>
+					<td>{{ link_to_route('checklists.show', $checklist->name, array($checklist->id)) }}</td>
 					<td>{{{ $checklist->detailURL }}}</td>
                     <td>{{ link_to_route('checklists.edit', 'Edit', array($checklist->id), array('class' => 'btn btn-info')) }}</td>
                     <td>

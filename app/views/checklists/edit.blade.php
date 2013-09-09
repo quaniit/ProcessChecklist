@@ -3,23 +3,20 @@
 @section('main')
 
 <h1>Edit Checklist</h1>
+
+<div>
 {{ Form::model($checklist, array('method' => 'PATCH', 'route' => array('checklists.update', $checklist->id))) }}
-	<ul>
-        <li>
-            {{ Form::label('name', 'Name:') }}
-            {{ Form::text('name') }}
-        </li>
-
-        <li>
-            {{ Form::label('detailURL', 'DetailURL:') }}
-            {{ Form::text('detailURL') }}
-        </li>
-
-		<li>
-			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('checklists.show', 'Cancel', $checklist->id, array('class' => 'btn')) }}
-		</li>
-	</ul>
+	<div class="row-fluid">
+		<div class="span4">
+            {{ Form::text('name', Input::old('name'), array('placeholder'=>'Name')) }}
+        </div>
+        <div class="span4">
+            {{ Form::text('detailURL', Input::old('detailURL'), array('placeholder'=>'URL')) }}
+        </div>
+        <div class="span3 pagination-centered">
+	        {{ Form::submit('Update', array('class' => 'btn btn-info')) }}    	
+	    </div>
+	</div>
 {{ Form::close() }}
 
 @if ($errors->any())
@@ -27,5 +24,8 @@
 		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
 	</ul>
 @endif
-
+</div>
+<div>
+    {{  $entriesView }}
+</div>
 @stop
